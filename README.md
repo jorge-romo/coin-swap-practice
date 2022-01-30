@@ -5,10 +5,12 @@ I built it using TypeScript, React, Next.js & Material UI
 
 
 ## Points to finish
-- "Connect Adress" functionality
-- Implement onChange functionality with its conditions
-- The "toggle" button functionality
-- "Swap" button styling
+- ~~Created the tab functionality~~
+- ~~"Connect Adress" functionality~~
+- ~~Implement onChange functionality for amount field with its conditions~~
+- ~~The "toggle" button functionality~~
+- ~~"Swap" button styling~~
+- ~~Update card info~~
 - Mobile View !!
 - Tabs Style
 - Currency & Amount fields styling

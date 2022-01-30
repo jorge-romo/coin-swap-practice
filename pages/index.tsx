@@ -15,32 +15,6 @@ import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 
-interface TabPanelProps {
-	children?: React.ReactNode;
-	index: number;
-	value: number;
-}
-
-// function TabPanel(props: TabPanelProps) {
-// 	const { children, value, index, ...other } = props;
-  
-// 	return (
-// 	  <div
-// 		role="tabpanel"
-// 		hidden={value !== index}
-// 		id={`simple-tabpanel-${index}`}
-// 		aria-labelledby={`simple-tab-${index}`}
-// 		{...other}
-// 	  >
-// 		{value === index && (
-// 			{children}
-// 		//   <Box sx={{ p: 3 }}>
-// 		// 	<Typography>{children}</Typography>
-// 		//   </Box>
-// 		)}
-// 	  </div>
-// 	);
-//   }
 
 function a11yProps(index: number) {
 	return {
@@ -51,17 +25,53 @@ function a11yProps(index: number) {
 
 const Home: NextPage = () => {
 	const [tabValue, setTabValue] = React.useState("1");
+	const [walletInfo, setWalletInfo] = React.useState({address: '', walletConnected: false});
+	const [fromFieldInfo, setFromFieldInfo] = React.useState({
+		value: 0,
+		isValidValue: true,
+		errorMsg: ""
+	});
+	const [toFieldInfo, setToFieldInfo] = React.useState({
+		value: 0,
+		isValidValue: true,
+		errorMsg: ""
+	});
+	const [fromCurrency, setFromCurrency] = React.useState("ETH")
+	const [toCurrency, setToCurrency] = React.useState("")
 
-	const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
+	const handleTabChange = (event: React.SyntheticEvent, newValue: string) => {
 		setTabValue(newValue);
 	};
+
+	function handleToggleButton(){
+		if (fromFieldInfo.isValidValue && toFieldInfo.isValidValue){
+			console.log("entered condition")
+			const fromValue = fromFieldInfo.value
+			const toValue = toFieldInfo.value
+			setFromFieldInfo({
+				value: toValue,
+				isValidValue: true,
+				errorMsg: ""
+			})
+			setToFieldInfo({
+				value: fromValue,
+				isValidValue: true,
+				errorMsg: ""
+			})
+		}
+	}
+
+	function isValidTransaction(){
+		return walletInfo.walletConnected && fromFieldInfo.value > 0 && fromFieldInfo.isValidValue && toFieldInfo.value > 0 && toFieldInfo.isValidValue
+		&& fromCurrency != '0' && toCurrency != '0'
+	}
 
 	return (
 		<Grid container
 			alignItems="flex-start"
 			style={{ maxHeight: '100vh', minHeight: '100vh', maxWidth: '100vw', backgroundImage: 'url(/assets/background.jpg)'}}>
 			
-			<Header />
+			<Header walletInfo={walletInfo} setWalletInfo={setWalletInfo}/>
 
 			<Grid
 				container
@@ -91,28 +101,29 @@ const Home: NextPage = () => {
 										<Grid container xs={8} sx={{ bgcolor: 'white'}} >
 											<Typography color="initial" sx={{fontSize: 18, fontWeight: 'semibold', p: 2}}>Select a toking to start swaping</Typography>
 											<Grid container direction="row" sx={{ width: 'full'}}>
-												<CurrencySelection label="from" sx={{width: "40%", m: 1}} value={10}/>
-												<AmountInputField sx={{width: "55%", mt:1, mr: 1}}/>
+												<CurrencySelection label="from" sx={{width: "40%", m: 1}} value={fromCurrency} setValue={setFromCurrency}/>
+												<AmountInputField sx={{width: "55%", mt:1, mr: 1}} fieldInfo={fromFieldInfo} setFieldInfo={setFromFieldInfo}/>
 											</Grid>
-											<Button variant="outlined" sx={{mx: 'auto', mb: 4, bgcolro: "#1F6DC933"}}>
+											<Button variant="outlined" onClick={handleToggleButton} sx={{mx: 'auto', mb: 4, bgcolro: "#1F6DC933"}}>
 												<img src="\assets\icons\twoArrows.svg" alt="Swap" />
 											</Button>
 											<Grid container direction="row">
-												<CurrencySelection label="to" sx={{width: "40%", m: 1}} value={0}/>
-												<AmountInputField sx={{width: "55%", mt:1, mr: 1}}/>
+												<CurrencySelection label="to" sx={{width: "40%", m: 1}} value={toCurrency} setValue={setToCurrency}/>
+												<AmountInputField sx={{width: "55%", mt:1, mr: 1}} fieldInfo={toFieldInfo} setFieldInfo={setToFieldInfo}/>
 											</Grid>
-											<Button fullWidth variant="contained">Swap</Button>
+											<Button fullWidth variant="contained" disabled={!isValidTransaction() ? true: false}>Swap</Button>
 										</Grid>
 										<Grid item xs={4}>
-											<CardInfo />
+											<CardInfo walletInfo={walletInfo} setWalletInfo={setWalletInfo} isValidTransaction={isValidTransaction()}
+											fromCurrency={fromCurrency} toCurrency={toCurrency} toAmount={toFieldInfo.value}/>
 										</Grid>
 									</Grid>
 								</Grid>
 							</TabPanel>
 
 							<TabPanel value="2">
-								<Grid container xs={12} sx={{ bgcolor: '#cfe8fc', width: '60vw', height: "60vh"}}>
-									what ?
+								<Grid container xs={12} sx={{ bgcolor: 'white', width: '60vw', height: "60vh"}}>
+									
 								</Grid>
 							</TabPanel>
 						</TabContext>
