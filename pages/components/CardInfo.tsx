@@ -32,12 +32,12 @@ export default function CardInfo(props: CardInfoProps){
 	}
 
 	return (
-		<Card sx={{ height: '60vh', pt:'4rem', textAlign: 'center'}}>
+		<Card sx={{ height: '60vh', pt:'4rem', textAlign: 'center', bgcolor: "#f3f6f4"}}>
 			{isValidTransaction ? 
 				<CardContent>
 					<Avatar sx={{ bgcolor: 'gray', mx: 'auto', mb: 2, width: 70, height: 70}}> </Avatar>
 					<Typography sx={{ fontSize: 14, fontWeight: 'bold', mb: 2 }} color="text.secondary">
-						Transaction History
+						Transaction Details
 					</Typography>
 					<Grid container direction="row" justifyContent="space-between">
 						<Typography sx={{ fontSize: 14 }} color="text.secondary">

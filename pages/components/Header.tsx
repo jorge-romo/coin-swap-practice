@@ -13,7 +13,7 @@ export default function header(props: HeaderProps) {
 
 	const WalletIsConnected = () => {
 		return (
-			<Grid container xs={3} direction="row"  justifyContent="flex-end" alignItems="center" sx={{mt: 2}}>
+			<Grid container xs={9} md={3} direction="row"  justifyContent="flex-end" alignItems="center" sx={{mt: 2}}>
 				<Grid container xs={6} direction="row" justifyContent="space-between" alignItems="center"
 					sx={{bgcolor: 'lightgray', p: 1}}>
 					<img src="\assets\icons\ethereum.svg" alt="Etherum Logo" />
@@ -28,7 +28,7 @@ export default function header(props: HeaderProps) {
 
 	const WalletIsNotConnected = () => {
 		return (
-			<Grid container xs={2} direction="row"  justifyContent="flex-end" alignItems="center" sx={{mt: 2, mr: 3}}>
+			<Grid container xs={8} md={2} direction="row"  justifyContent="flex-end" alignItems="center" sx={{mt: 2, mr: 3}}>
 				<Button variant="contained" onClick={handleConnectWalletClick}>Connect Wallet</Button>
 			</Grid>
 		)

@@ -4,7 +4,6 @@ import TextField from '@mui/material/TextField'
 import FormHelperText from '@mui/material/FormHelperText'
 
 interface AmountInputFieldProps {
-	sx: Object,
 	fieldInfo: {
 		value: number,
 		isValidValue: boolean,
@@ -18,7 +17,7 @@ interface AmountInputFieldProps {
 }
 
 export default function AmountInputField(props: AmountInputFieldProps) {
-	const { sx, fieldInfo, setFieldInfo } = props
+	const { fieldInfo, setFieldInfo } = props
 
 	function handleChange(e: React.ChangeEvent<HTMLInputElement>){
 		const amount = Number(e.target.value)
@@ -56,7 +55,7 @@ export default function AmountInputField(props: AmountInputFieldProps) {
 	}
 
 	return (
-		<Grid sx={sx}>
+		<Grid sx={{width: {md: "55%", xs: "50%"}, mt:1, mr: 1}}>
 			<TextField id="outlined-basic" onChange={handleChange} value={fieldInfo.value} label="amount" variant="outlined" size="small" sx={{ width: '100%'}}
 				type="number" error={!fieldInfo.isValidValue ? true : false} helperText={fieldInfo.errorMsg} />
 			{/* <FormHelperText>Max to use all your funds</FormHelperText> */}
