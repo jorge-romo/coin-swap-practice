@@ -3,7 +3,6 @@ This app resembles decentralized crypto swap tools like [Uniswap](https://app.un
 
 I built it using TypeScript, React, Next.js & Material UI
 
-
 ## Points to finish
 - ~~Import Font~~
 - ~~Created the tab functionality~~
