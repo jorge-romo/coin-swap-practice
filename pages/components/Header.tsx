@@ -29,7 +29,7 @@ export default function header(props: HeaderProps) {
 	const WalletIsNotConnected = () => {
 		return (
 			<Grid container xs={8} md={2} direction="row"  justifyContent="flex-end" alignItems="center" sx={{mt: 2, mr: 3}}>
-				<Button variant="contained" onClick={handleConnectWalletClick}>Connect Wallet</Button>
+				<Button variant="contained" onClick={handleConnectWalletClick} color="primary">Connect Wallet</Button>
 			</Grid>
 		)
 	}

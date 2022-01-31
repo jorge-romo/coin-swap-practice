@@ -1,21 +1,28 @@
 import * as React from 'react';
 import type { NextPage } from 'next'
 import Grid from '@mui/material/Grid'
-import Paper from '@mui/material/Paper'
 import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
 import AmountInputField from './components/AmountInputField';
 import CurrencySelection from './components/CurrencySelection';
 import CardInfo from './components/CardInfo';
 import Header from './components/Header'
-import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
-import zIndex from '@mui/material/styles/zIndex';
+import { makeStyles } from '@mui/styles';
+import { alertTitleClasses } from '@mui/material';
 
+const pageStyles = makeStyles((theme) => ({
+	parentContainer: {
+		minHeight: '100vh',
+		height: 'auto', 
+		maxWidth: '100vw',
+		backgroundImage: 'url(/assets/background.jpg)',
+	}
+}));
 
 function a11yProps(index: number) {
 	return {
@@ -25,6 +32,7 @@ function a11yProps(index: number) {
 }
 
 const Home: NextPage = () => {
+	const classes = pageStyles()
 	const [tabValue, setTabValue] = React.useState("1");
 	const [walletInfo, setWalletInfo] = React.useState({address: '', walletConnected: false});
 	const [fromFieldInfo, setFromFieldInfo] = React.useState({
@@ -63,14 +71,19 @@ const Home: NextPage = () => {
 	}
 
 	function isValidTransaction(){
+		console.log(toCurrency)
 		return walletInfo.walletConnected && fromFieldInfo.value > 0 && fromFieldInfo.isValidValue && toFieldInfo.value > 0 && toFieldInfo.isValidValue
-		&& fromCurrency != '0' && toCurrency != '0'
+		&& fromCurrency != '' && toCurrency != ''
+	}
+
+	function handleSwapClick(){
+		alert("Swap Complete")
 	}
 
 	return (
 		<Grid container
 			alignItems="flex-start"
-			style={{ minHeight: '100vh', height: 'auto',  maxWidth: '100vw', backgroundImage: 'url(/assets/background.jpg)'}}>
+			className={classes.parentContainer} >
 			
 			<Header walletInfo={walletInfo} setWalletInfo={setWalletInfo}/>
 
@@ -79,7 +92,6 @@ const Home: NextPage = () => {
 				direction="row"
 				alignItems={{md: 'cetner', xs: 'flex-start'}}
 				justifyContent="center"
-				sx={{ }}
 				>
 
 				<Grid container md={8} xs={11} sx={{minHeight: "60vh"}}>
@@ -112,7 +124,7 @@ const Home: NextPage = () => {
 												<CurrencySelection label="to" sx={{width: "40%", m: 1}} value={toCurrency} setValue={setToCurrency}/>
 												<AmountInputField fieldInfo={toFieldInfo} setFieldInfo={setToFieldInfo}/>
 											</Grid>
-											<Button fullWidth variant="contained" sx={{height:{xs: '4rem', md: 'auto'}, position: {md:'relative', xs:'fixed'}, bottom: 0, left: 0, zIndex: {xs: 2, md: 1}}} disabled={!isValidTransaction() ? true: false}>Swap</Button>
+											<Button fullWidth variant="contained" onClick={handleSwapClick} sx={{height:{xs: '4rem', md: 'auto'}, position: {md:'relative', xs:'fixed'}, bottom: 0, left: 0, zIndex: {xs: 2, md: 1}}} disabled={!isValidTransaction() ? true: false}>Swap</Button>
 										</Grid>
 										<Grid item md={4} xs={12}>
 											<CardInfo walletInfo={walletInfo} setWalletInfo={setWalletInfo} isValidTransaction={isValidTransaction()}

@@ -87,7 +87,7 @@ export default function CardInfo(props: CardInfoProps){
 					</Typography>
 					{walletInfo.walletConnected ? 
 						<Typography sx={{ fontSize: 14, fontWeight: 'bold' }} color="text.secondary" gutterBottom>
-							Connect Address
+							Contract Address
 						</Typography>
 						:
 						<Button onClick={handleConnectWalletClick}>Connect Wallet</Button>

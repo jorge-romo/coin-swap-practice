@@ -1,0 +1,162 @@
+@font-face {
+    font-family: 'Konnect';
+    src: url('konnect-font/Konnect-BlackItalic.woff2') format('woff2'),
+        url('konnect-font/Konnect-BlackItalic.woff') format('woff');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Konnect';
+    src: url('konnect-font/Konnect-Black.woff2') format('woff2'),
+        url('konnect-font/Konnect-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Konnect';
+    src: url('konnect-font/Konnect-BoldItalic.woff2') format('woff2'),
+        url('konnect-font/Konnect-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Konnect';
+    src: url('konnect-font/Konnect-Bold.woff2') format('woff2'),
+        url('konnect-font/Konnect-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Konnect';
+    src: url('konnect-font/Konnect-ExtraBold.woff2') format('woff2'),
+        url('konnect-font/Konnect-ExtraBold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Konnect Hairline';
+    src: url('konnect-font/Konnect-Hairline.woff2') format('woff2'),
+        url('konnect-font/Konnect-Hairline.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Konnect';
+    src: url('konnect-font/Konnect-Light.woff2') format('woff2'),
+        url('konnect-font/Konnect-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Konnect';
+    src: url('konnect-font/Konnect-Italic.woff2') format('woff2'),
+        url('konnect-font/Konnect-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Konnect Hairline';
+    src: url('konnect-font/Konnect-HairlineItalic.woff2') format('woff2'),
+        url('konnect-font/Konnect-HairlineItalic.woff') format('woff');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Konnect';
+    src: url('konnect-font/Konnect-ExtraBoldItalic.woff2') format('woff2'),
+        url('konnect-font/Konnect-ExtraBoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Konnect';
+    src: url('konnect-font/Konnect-MediumItalic.woff2') format('woff2'),
+        url('konnect-font/Konnect-MediumItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Konnect';
+    src: url('konnect-font/Konnect-Thin.woff2') format('woff2'),
+        url('konnect-font/Konnect-Thin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Konnect';
+    src: url('konnect-font/Konnect-Regular.woff2') format('woff2'),
+        url('konnect-font/Konnect-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Konnect';
+    src: url('konnect-font/Konnect-SemiBoldItalic.woff2') format('woff2'),
+        url('konnect-font/Konnect-SemiBoldItalic.woff') format('woff');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Konnect';
+    src: url('konnect-font/Konnect-SemiBold.woff2') format('woff2'),
+        url('konnect-font/Konnect-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Konnect';
+    src: url('konnect-font/Konnect-ThinItalic.woff2') format('woff2'),
+        url('konnect-font/Konnect-ThinItalic.woff') format('woff');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Konnect';
+    src: url('konnect-font/Konnect-LightItalic.woff2') format('woff2'),
+        url('konnect-font/Konnect-LightItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Konnect';
+    src: url('konnect-font/Konnect-Medium.woff2') format('woff2'),
+        url('konnect-font/Konnect-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
